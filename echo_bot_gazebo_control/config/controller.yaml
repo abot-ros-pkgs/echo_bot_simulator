@@ -14,8 +14,26 @@ echo_bot:
     # Wheel separation and diameter. These are both optional.
     # diff_drive_controller will attempt to read either one or both from the
     # URDF if not specified as a parameter
-    wheel_separation : 0.43515
-    wheel_radius : 0.032
+    wheel_separation : 0.156
+    wheel_radius : 0.029
 
     # Wheel separation and radius multipliers
     wheel_separation_multiplier: 1.0 # default: 1.0
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  # position_controller:
+  #   type: "position_controllers/JointTrajectoryController"
+  #   joints:
+  #     - upper_leg_left_joint
+  #     - upper_leg_right_joint
+  #   pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  left_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: upper_leg_left_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  right_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: upper_leg_right_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
