@@ -7,6 +7,8 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotState1
+        - /TF1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz/Selection
@@ -120,6 +122,56 @@ Visualization Manager:
       Show Highlights: true
       Value: true
       Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        base_footprint:
+          Value: false
+        base_link:
+          Value: false
+        lower_leg_left:
+          Value: false
+        lower_leg_right:
+          Value: false
+        odom:
+          Value: true
+        upper_leg_left:
+          Value: false
+        upper_leg_right:
+          Value: false
+        upper_side_leg_left:
+          Value: false
+        upper_side_leg_right:
+          Value: false
+        wheel_left_link:
+          Value: true
+        wheel_right_link:
+          Value: true
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: false
+      Show Axes: true
+      Show Names: false
+      Tree:
+        odom:
+          base_footprint:
+            base_link:
+              upper_leg_left:
+                lower_leg_left:
+                  upper_side_leg_left:
+                    {}
+                  wheel_left_link:
+                    {}
+              upper_leg_right:
+                lower_leg_right:
+                  upper_side_leg_right:
+                    {}
+                  wheel_right_link:
+                    {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -148,7 +200,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 10
+      Distance: 0.7956183552742004
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -163,10 +215,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.785398006439209
+      Pitch: 0.35039833188056946
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.785398006439209
+      Yaw: 1.8103971481323242
     Saved: ~
 Window Geometry:
   Displays:
@@ -185,4 +237,4 @@ Window Geometry:
     collapsed: false
   Width: 1200
   X: 67
-  Y: 30
+  Y: 27
