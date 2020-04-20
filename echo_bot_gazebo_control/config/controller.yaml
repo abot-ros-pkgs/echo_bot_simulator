@@ -38,10 +38,6 @@ echo_bot:
         max_acceleration       :  1.0  # rad/s^2
         min_acceleration       : -1.0 # rad/s^2
 
-    # Wheel separation and radius multipliers
-    # wheel_separation_multiplier: 1.0 # default: 1.0
-    # pid: {p: 100.0, i: 0.01, d: 10.0}
-
   left_leg_trajectory_controller:
     type: "position_controllers/JointTrajectoryController"
     joints:
