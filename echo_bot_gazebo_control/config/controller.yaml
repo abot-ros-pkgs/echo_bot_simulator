@@ -7,7 +7,7 @@ echo_bot:
     type        : "diff_drive_controller/DiffDriveController"
     left_wheel  : 'wheel_left_joint'
     right_wheel : 'wheel_right_joint'
-    publish_rate: 25.0               # default: 50
+    publish_rate: 25.0  # default: 50
     pose_covariance_diagonal : [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
     twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
 
@@ -21,19 +21,16 @@ echo_bot:
     wheel_separation_multiplier: 1.0 # default: 1.0
     pid: {p: 100.0, i: 0.01, d: 10.0}
 
-  # position_controller:
-  #   type: "position_controllers/JointTrajectoryController"
-  #   joints:
-  #     - upper_leg_left_joint
-  #     - upper_leg_right_joint
-  #   pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_leg_trajectory_controller:
+    type: "position_controllers/JointTrajectoryController"
+    joints:
+      - upper_leg_left_joint
+      - lower_leg_left
+      - upper_side_leg_left
 
-  left_joint_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: upper_leg_left_joint
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-
-  right_joint_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: upper_leg_right_joint
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+  right_leg_trajectory_controller:
+    type: "position_controllers/JointTrajectoryController"
+    joints:
+      - upper_leg_right_joint
+      - lower_leg_right
+      - upper_side_leg_right

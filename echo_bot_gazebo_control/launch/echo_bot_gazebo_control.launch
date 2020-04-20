@@ -5,8 +5,8 @@
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" 
-        type="spawner" ns="echo_bot" output="screen" 
-        args="joint_state_controller left_joint_position_controller right_joint_position_controller diff_drive_controller">
+      type="spawner" ns="echo_bot" output="screen"
+      args="joint_state_controller left_leg_trajectory_controller right_leg_trajectory_controller diff_drive_controller">
   </node>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
