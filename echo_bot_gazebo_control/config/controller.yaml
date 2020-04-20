@@ -25,12 +25,12 @@ echo_bot:
     type: "position_controllers/JointTrajectoryController"
     joints:
       - upper_leg_left_joint
-      - lower_leg_left
-      - upper_side_leg_left
+      # - lower_leg_left
+      # - upper_side_leg_left
 
   right_leg_trajectory_controller:
     type: "position_controllers/JointTrajectoryController"
     joints:
       - upper_leg_right_joint
-      - lower_leg_right
-      - upper_side_leg_right
+      # - lower_leg_right
+      # - upper_side_leg_right
