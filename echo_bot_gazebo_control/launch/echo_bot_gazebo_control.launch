@@ -1,18 +1,22 @@
 <launch>
 
-  <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find echo_bot_gazebo_control)/config/controller.yaml" command="load"/>
+  <arg name="show_rviz" default="true"/>
 
-  <!-- load the controllers -->
-  <node name="controller_spawner" pkg="controller_manager" 
-      type="spawner" ns="echo_bot" output="screen"
-      args="joint_state_controller left_leg_trajectory_controller right_leg_trajectory_controller diff_drive_controller">
-  </node>
-
-  <!-- convert joint states to TF transforms for rviz, etc -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher"
-        type="robot_state_publisher"
-        respawn="false" output="screen" ns="/echo_bot">
-  </node>
+  <!-- robot visualization in Rviz -->
+  <group if="$(arg show_rviz)">
+    <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find echo_bot_gazebo)/launch/config/display.rviz"/>
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find echo_bot_gazebo_control)/config/controller.yaml" command="load"/>
+    <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" 
+        type="spawner" ns="echo_bot" output="screen"
+        args="joint_state_controller left_leg_trajectory_controller right_leg_trajectory_controller diff_drive_controller">
+    </node>
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher"
+          type="robot_state_publisher"
+          respawn="false" output="screen" ns="/echo_bot">
+    </node>
+  </group>
 
 </launch>
