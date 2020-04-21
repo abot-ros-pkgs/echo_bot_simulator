@@ -10,13 +10,22 @@
     <!-- load the controllers -->
     <node name="controller_spawner" pkg="controller_manager" 
         type="spawner" ns="echo_bot" output="screen"
-        args="joint_state_controller left_leg_trajectory_controller right_leg_trajectory_controller diff_drive_controller">
+        args="joint_state_controller
+              diff_drive_controller
+              leg_trajectory_controller
+              lower_left_leg_position_controller
+              lower_right_leg_position_controller
+              upper_side_left_leg_position_controller
+              upper_side_right_leg_position_controller">
     </node>
+
     <!-- convert joint states to TF transforms for rviz, etc -->
     <node name="robot_state_publisher" pkg="robot_state_publisher"
           type="robot_state_publisher"
           respawn="false" output="screen" ns="/echo_bot">
     </node>
+
+    <!-- <node name="closed_loop_controller" pkg="closed_loop_controller" type="closed_loop_controller"/> -->
   </group>
 
 </launch>
